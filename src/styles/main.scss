@@ -1,0 +1,72 @@
+@import './base/vars';
+@import './base/reset';
+@import './base/mixins';
+@import './base/functions';
+
+body {
+  padding: 1rem;
+  overflow-x: hidden;
+  background-color: $body-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/kleps.webp");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+}
+
+.clock {
+  position: relative;
+  @include clockSize($width, $height);
+  border-radius: 50%;
+  border: 4px dotted $hero-clr;
+  transform: rotate($start-position);
+
+  &::before {
+    content:'';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: $width / 16;
+    height: $height / 16;
+    border-radius: 50%;
+    background-color: $hero-clr;
+    @include z-index(center);
+  }
+
+  &__hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    border-radius: 5px;
+    transform-origin: 0;
+
+    &--big {
+      width: ($width / 2) - 4vmin;
+      height: $height / 100;
+      background-color: $bigHand-bg-clr;
+      @include z-index(bigHand);
+      animation: 5s linear 1s infinite rotate;
+    }
+
+    &--small {
+      width: ($width / 3);
+      height: $height / 80;
+      background-color: $smallHand-bg-clr;
+      animation: 60s linear 1s infinite rotate;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+

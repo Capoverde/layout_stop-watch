@@ -1,0 +1,11 @@
+@mixin clockSize($width, $height) {
+  min-width: $width;
+  min-height: $height;
+}
+
+$z-index: (
+  center: 3,
+  bigHand: 2,
+  smallHand: 1
+);
+
