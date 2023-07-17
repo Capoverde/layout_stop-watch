@@ -1,7 +1,7 @@
-@import './base/vars';
-@import './base/reset';
-@import './base/mixins';
-@import './base/functions';
+@import "./base/vars";
+@import "./base/reset";
+@import "./base/mixins";
+@import "./base/functions";
 
 body {
   padding: 1rem;
@@ -24,7 +24,7 @@ body {
   transform: rotate($start-position);
 
   &::before {
-    content:'';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -69,4 +69,3 @@ body {
     transform: rotate(360deg);
   }
 }
-
